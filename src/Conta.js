@@ -1,35 +1,37 @@
 class Conta {
-    constructor(){
+
+    constructor() {
         this.saldo = 0;
         this.ativo = false;
     }
 
-    getSaldo(){
+    getSaldo() {
         return this.saldo;
     }
 
-    ativar(){
+    ativar() {
         this.ativo = true;
-
     }
 
-    inativar(){
+    inativar() {
         this.ativo = false;
     }
 
-    depositar(valor){
-        if (this.ativo){
+    depositar(valor) {
+        if (this.ativo) {
             this.saldo += valor;
-
+        } else {
+            throw new Error("Conta inativa! Não pode depositar");
         }
     }
 
-    sacar(valor){
-        if(this.ativo && this.saldo - valor >= 0){
+    sacar(valor) {
+        if (this.ativo && this.saldo - valor >= 0) {
             this.saldo -= valor;
+        } else {
+            throw new Error("Conta inativa ou saldo inferior ao valor de saque!")
         }
     }
-
 }
 
 module.exports = Conta;
