@@ -32,4 +32,66 @@
 
 class Pessoa {
 
+    constructor() {
+        this.nome = nome;
+        this.idade = idade;
+        this.endereco = endereco;
+        this.genero = genero;
+        this.telefone = telefone;
+        this.tempoDeTrabalho = tempoDeTrabalho;
+        this.idadeMulherAposentadoria = idadeMulherAposentadoria;
+        this.idadeHomemAposentadoria = idadeHomemAposentadoria;
+        this.ativo = false;
+    }
+
+    ativar() {
+        this.ativo = true;
+    }
+
+    getNome() {
+        return this.nome;
+    }
+
+    getIdade() {
+        return this.idade;
+    }
+
+    getEndereco() {
+        return this.endereco;
+    }
+
+    getDadosCompletos() {
+        return this.nome, this.idade, this.genero, this.telefone, this.tempoDeTrabalho;
+    }
+
+    getNomeETelefone() {
+        return this.nome, this.telefone;
+    }
+
+    getTempoDeTrabalho() {
+        return this.tempoDeTrabalho;
+    }
+
+    getTempoParaSeAposentarMulher() { 
+        if(this.idadeMulherAposentadoria - this.tempoDeTrabalho >= 60){
+            this.idadeMulherAposentadoria -= this.tempoDeTrabalho;
+        } else {
+            throw new Error("Você já pode se aposentar, sua idade ultrapassa a idade maxima para trabalhar!")
+        }
+    }
+
+    getTempoParaSeAposentarHomem() { 
+        if(this.idadeHomemAposentadoria - this.tempoDeTrabalho >= 65){
+            this.idadeHomemAposentadoria -= this.tempoDeTrabalho;
+        } else {
+            throw new Error("Você já pode se aposentar, sua idade ultrapassa a idade maxima para trabalhar!")
+        }
+    }
+
+    getTelefone() {
+        return this.telefone;
+    }
+
 }
+
+module.exports = Pessoa;
