@@ -1,3 +1,5 @@
+const GENERO = require("./Generos");
+
 /**
  * Criar uma classe PESSOA e adicionar os seguintes atributos para ela
  * - Nome 
@@ -31,5 +33,66 @@
  */
 
 class Pessoa {
+  constructor({
+    nome,
+    idade,
+    endereco,
+    telefone,
+    tempoDeTrabalho
+  }) {
+    this.nome = nome;
+    this.idade = idade;
+    this.endereco = endereco;
+    this.telefone = telefone;
+    this.tempoDeTrabalho = tempoDeTrabalho;
+  }
 
+  getNome() {
+    return this.nome;
+  }
+
+  getIdade() {
+    return this.idade;
+  }
+
+  getEndereco() {
+    return this.endereco;
+  }
+
+  getTelefone() {
+    return this.telefone;
+  }
+
+  getTempoDeTrabalho() {
+    return this.tempoDeTrabalho;
+  }
+  
+  getGenero() {
+    return this.genero;
+  }
+
+  getTempoParaSeAposentar() {
+    let tempoParaSeAposentar = 65 - this.idade;
+
+    if (this.genero === GENERO.FEMALE)
+      tempoParaSeAposentar = 60 - this.idade;
+
+    if (tempoParaSeAposentar < 0)
+      return tempoParaSeAposentar = 0;
+
+    return tempoParaSeAposentar;
+  }
+
+  getNomeETelefone() {
+    return {
+      nome: this.nome,
+      telefone: this.telefone,
+    }
+  }
+
+  getDadosCompletos() {
+    return `${this.nome},${this.idade},${this.endereco.cep},${this.endereco.numero},${this.telefone},${this.tempoDeTrabalho}`;
+  }
 }
+
+module.exports = Pessoa;
