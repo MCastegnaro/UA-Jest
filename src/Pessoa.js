@@ -78,19 +78,17 @@ class Pessoa {
     }
 
     getTempoParaSeAposentarMulher() { 
-        if(this.idadeMulherAposentadoria - this.tempoDeTrabalho >= 60){
-            this.idadeMulherAposentadoria -= this.tempoDeTrabalho;
-        } else {
-            throw new Error("Você já pode se aposentar, sua idade ultrapassa a idade maxima para trabalhar!")
+        if(this.genero == "feminino"){
+            this.idadeMulherAposentadoria = 60 - this.idade;
         }
+        return this.idadeMulherAposentadoria;
     }
 
     getTempoParaSeAposentarHomem() { 
-        if(this.idadeHomemAposentadoria - this.tempoDeTrabalho >= 65){
-            this.idadeHomemAposentadoria -= this.tempoDeTrabalho;
-        } else {
-            throw new Error("Você já pode se aposentar, sua idade ultrapassa a idade maxima para trabalhar!")
+        if(this.genero == "masculino"){
+            this.idadeHomemAposentadoria = 65 - this.idade;
         }
+        return this.idadeHomemAposentadoria;
     }
 
 }

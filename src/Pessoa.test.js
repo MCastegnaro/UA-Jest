@@ -25,6 +25,7 @@ describe("Pessoa", () => {
 
         DadosCompletos = nome.concat('', idade,'', endereco,'', genero,'', telefone,'', tempoDeTrabalho,''); 
         nomeETelefone = nome.concat('',telefone,'');
+
     })
 
     test("Deve retornar o nome informado", () => {
@@ -58,6 +59,16 @@ describe("Pessoa", () => {
     test("Deve retornar o nome e o telefone informado", () => {
         expect(pessoa.getNomeETelefone()).toBe(nomeETelefone);
     });
+
+    test("Deve verificar se a mulher pode se aposentar", () => {
+        expect(pessoa.getTempoParaSeAposentarMulher()).toBe(this.idadeMulherAposentadoria);
+    });
+
+    test("Deve verificar se a homem pode se aposentar", () => {
+        expect(pessoa.getTempoParaSeAposentarMulher()).toBe(this.idadeHomemAposentadoria);
+    });
+
+
 
 
 
