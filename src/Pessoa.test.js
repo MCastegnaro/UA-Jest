@@ -62,24 +62,65 @@ describe("Pessoa", () => {
     expect(tempoDeTrabalho).toBeLessThanOrEqual(142);
   });
 
-  test("Pessoa deve retornar um tempo para se aposentar mediante gênero", () => {
+  test("Pessoa de gênero masculino com idade menor que 65 deve retornar um tempo para se aposentar", () => {
+    pessoa.genero = GENERO.MALE;
+
     const idade = pessoa.getIdade();
-    const genero = pessoa.getGenero();
+    const tempoParaSeAposentar = pessoa.getTempoParaSeAposentar();
+
+    expect(typeof tempoParaSeAposentar).toBe("number");
+    expect(tempoParaSeAposentar).toBe(65 - idade);
+  });
+
+  test("Pessoa de gênero masculino com idade maior que 65 deve retornar tempo para se aposentar igual 0", () => {
+    pessoa.genero = GENERO.MALE;
+    pessoa.idade = 70;
 
     const tempoParaSeAposentar = pessoa.getTempoParaSeAposentar();
 
     expect(typeof tempoParaSeAposentar).toBe("number");
+    expect(tempoParaSeAposentar).toBe(0);
+  });
 
+  test("Pessoa de gênero masculino com idade igual a 65 deve retornar tempo para se aposentar igual 0", () => {
+    pessoa.genero = GENERO.MALE;
+    pessoa.idade = 65;
 
-    let expectedTempoParaSeAposentar = 65 - idade;
+    const tempoParaSeAposentar = pessoa.getTempoParaSeAposentar();
 
-    if (genero === GENERO.FEMALE)
-      expectedTempoParaSeAposentar = 60 - idade;
+    expect(typeof tempoParaSeAposentar).toBe("number");
+    expect(tempoParaSeAposentar).toBe(0);
+  });
 
-    if (expectedTempoParaSeAposentar < 0)
-      expectedTempoParaSeAposentar = 0;
+  test("Pessoa de gênero feminino com idade menor que 60 deve retornar um tempo para se aposentar", () => {
+    pessoa.genero = GENERO.FEMALE;
 
-    expect(tempoParaSeAposentar).toBe(expectedTempoParaSeAposentar);
+    const idade = pessoa.getIdade();
+    const tempoParaSeAposentar = pessoa.getTempoParaSeAposentar();
+
+    expect(typeof tempoParaSeAposentar).toBe("number");
+    expect(tempoParaSeAposentar).toBe(60 - idade);
+  })  
+
+  test("Pessoa de gênero feminino com idade maior 60 deve retornar tempo para se aposentar igual 0", () => {
+    pessoa.genero = GENERO.FEMALE;
+    pessoa.idade = 65;
+
+    const tempoParaSeAposentar = pessoa.getTempoParaSeAposentar();
+
+    expect(typeof tempoParaSeAposentar).toBe("number");
+    expect(tempoParaSeAposentar).toBe(0);
+  });
+  
+
+  test("Pessoa de gênero feminino com idade igual a 60 deve retornar tempo para se aposentar igual 0", () => {
+    pessoa.genero = GENERO.FEMALE;
+    pessoa.idade = 60;
+
+    const tempoParaSeAposentar = pessoa.getTempoParaSeAposentar();
+
+    expect(typeof tempoParaSeAposentar).toBe("number");
+    expect(tempoParaSeAposentar).toBe(0);
   });
 
   test("Pessoa deve retornar nome e telefone", () => {
@@ -113,7 +154,7 @@ describe("Pessoa", () => {
 
     expect(telefone.length).toBeGreaterThanOrEqual(10);
     expect(telefone.length).toBeLessThanOrEqual(11);
-    
+
     expect(Number(tempoDeTrabalho)).toBeGreaterThanOrEqual(0);
     expect(Number(tempoDeTrabalho)).toBeLessThanOrEqual(142);
   });
