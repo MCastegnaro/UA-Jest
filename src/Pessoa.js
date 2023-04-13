@@ -1,14 +1,14 @@
 /**
  * Criar uma classe PESSOA e adicionar os seguintes atributos para ela
- * - Nome 
- * - Idade 
+ * - Nome
+ * - Idade
  * - Endereço
  * - Gênero
  * - Telefone
  * - Tempo de trabalho
- * 
+ *
  * Essa classe deve ter um contrutor publico para instanciar todos os atributos listados acima
- * 
+ *
  * Os métodos são:
  * -> getNome> Retorna o nome
  * -> getIdade> Retorna a idade
@@ -17,19 +17,70 @@
  * -> getNomeETelefone> Retorna nome e telefone.
  * -> getTempoDeTrabalho> Retorna o tempo de trabalho.
  * -> getTempoParaSeAposentar> Assuma que a idade de aposentadoria é 60 anos feminino, 65 masculino.
- * -> getTelefone> Retorna o telefone. 
- * 
+ * -> getTelefone> Retorna o telefone.
+ *
  * Em seguida crie uma classe de teste para PESSOA e cubra as funcionalidades
  * com testes unitários para validar o correto funcionamento da mesma.
- * 
- * 
+ *
+ *
  * ENTREGA
- * 
- * A partir da branch aula-02 (upstram), deve ser criada uma branch com o seguinte padrão: ua-nome-sobrenome 
+ *
+ * A partir da branch aula-02 (upstram), deve ser criada uma branch com o seguinte padrão: ua-nome-sobrenome
  * e nela realizar o desenvolvimento da atividade. Após concluída, a ativade, gerar um PR (pull request) apontando para a branch
  * entrega-02 lá do repositório do professor.
  */
 
 class Pessoa {
+  constructor(nome, idade, endereco, genero, telefone, tempoDeTrabalho) {
+    this.nome = nome;
+    this.idade = idade;
+    this.endereco = endereco;
+    this.genero = genero;
+    this.telefone = telefone;
+    this.tempoDeTrabalho = tempoDeTrabalho;
+  }
+  static IdadeAposentadoriaFeminino = 60
+  static IdadeAposentadoriaMasculino = 65
+  static Generos = {
+    feminino: 'FEMININO',
+    masculino: 'MASCULINO'
+  }
 
+  getNome() {
+    return this.nome;
+  }
+
+  getIdade() {
+    return this.idade;
+  }
+
+  getEndereco() {
+    return this.endereco;
+  }
+
+  getDadosCompletos() {
+    return `Nome: ${this.nome}, idade: ${this.idade}, genero:${this.genero}, telefone: ${this.telefone}, tempo de trabalho: ${this.tempoDeTrabalho}.`;
+  }
+
+  getNomeETelefone(){
+    return `Nome: ${this.nome}, telefone: ${this.telefone}.`;
+  }
+
+  getTempoDeTrabalho(){
+    return this.tempoDeTrabalho;
+  }
+
+  getTempoParaSeAposentar(){
+    if(this.genero === Pessoa.Generos.feminino){
+        return Pessoa.IdadeAposentadoriaFeminino - this.idade
+    }
+    return Pessoa.IdadeAposentadoriaMasculino - this.idade
+  }
+
+  getTelefone(){
+    return this.telefone;
+  }
 }
+
+
+module.exports = Pessoa;
