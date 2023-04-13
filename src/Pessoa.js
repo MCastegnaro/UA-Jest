@@ -65,7 +65,7 @@ class Pessoa {
   }
 
   getTempoParaSeAposentar(){
-    return this.endereco == "FEMININO" ? 60 - this.idade : 65 - this.idade;
+    return this.genero == "FEMININO" ? 60 - this.idade : 65 - this.idade;
   }
 
   getTelefone(){
