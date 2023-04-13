@@ -46,7 +46,7 @@ describe("Conta", () => {
         conta.inativar();
 
         expect(() => conta.sacar(saqueValido))
-            .toThrowError(new Error("Conta inativa ou saldo inferior ao valor de saque!"));
+            .toThrowError(new Error("Conta inativa ou saldo inferior ao valor do saldo! Não pode sacar"));
 
         expect(conta.getSaldo()).toBe(depositoInicial);
     });
@@ -55,7 +55,7 @@ describe("Conta", () => {
         conta.depositar(depositoInicial);
 
         expect(() => conta.sacar(saqueInvalido))
-            .toThrowError(new Error("Conta inativa ou saldo inferior ao valor de saque!"));
+            .toThrowError(new Error("Conta inativa ou saldo inferior ao valor do saldo! Não pode sacar"));
         expect(conta.getSaldo()).toBe(depositoInicial);
     });
 })

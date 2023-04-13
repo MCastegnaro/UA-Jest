@@ -32,4 +32,43 @@
 
 class Pessoa {
 
+    constructor(){
+        this.nome = " ";
+        this.idade = 0;
+        this.endereco = " ";
+        this.genero = " ";
+        this.telefone = " ";
+        this.tempoDeTrabalho = 0;
+        this.tempoParaSeAposentar = 0;
+    }
+
+    getNome(){
+        return this.nome;
+    }
+    getIdade(){
+        return this.idade;
+    }
+    getEndereco(){
+        return this.endereco;
+    }
+    getTelefone(){
+        return this.telefone;
+    }
+    getTempoDeTrabalho(){
+        return this.tempoDeTrabalho;
+    }
+    getTempoParaSeAposentar(){
+        if(this.genero == "feminino"){
+            this.tempoParaSeAposentar = 60-idade;
+        }else if(this.genero == "masculino"){
+            this.tempoParaSeAposentar = 65-idade;
+        }
+        return this.tempoParaSeAposentar;
+    }
+    // getDadosCompletos(){
+    //     return this.nome;
+    // }
+
+
 }
+module.exports = Pessoa;
