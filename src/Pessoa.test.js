@@ -61,11 +61,11 @@ describe("Pessoa", () => {
     });
 
     test("Deve verificar se a mulher pode se aposentar", () => {
-        expect(pessoa.getTempoParaSeAposentarMulher()).toBe(this.idadeMulherAposentadoria);
+        expect(pessoa.getTempoParaSeAposentarHomem()).toBe(this.idadeHomemAposentadoria);
     });
 
     test("Deve verificar se a homem pode se aposentar", () => {
-        expect(pessoa.getTempoParaSeAposentarMulher()).toBe(this.idadeHomemAposentadoria);
+        expect(pessoa.getTempoParaSeAposentarMulher()).toBe(this.idadeMulherAposentadoria);
     });
 
 
