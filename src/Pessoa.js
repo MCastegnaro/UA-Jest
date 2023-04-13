@@ -32,14 +32,14 @@
 
 class Pessoa {
 
-    constructor(){
-        this.nome = " ";
-        this.idade = 0;
-        this.endereco = " ";
-        this.genero = " ";
-        this.telefone = " ";
-        this.tempoDeTrabalho = 0;
-        this.tempoParaSeAposentar = 0;
+    constructor(nome, idade, endereco, genero, telefone, tempoDeTrabalho, tempoParaSeAposentar){
+        this.nome = nome;
+        this.idade = idade;
+        this.endereco = endereco;
+        this.genero = genero;
+        this.telefone = telefone;
+        this.tempoDeTrabalho = tempoDeTrabalho;
+        this.tempoParaSeAposentar = tempoParaSeAposentar;
     }
 
     getNome(){
@@ -53,6 +53,10 @@ class Pessoa {
     }
     getTelefone(){
         return this.telefone;
+    }
+    getNomeETelefone(){
+        return this.nome,
+        this.telefone;
     }
     getTempoDeTrabalho(){
         return this.tempoDeTrabalho;
