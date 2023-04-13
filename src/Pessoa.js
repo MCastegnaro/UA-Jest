@@ -10,14 +10,14 @@
  * Essa classe deve ter um contrutor publico para instanciar todos os atributos listados acima
  * 
  * Os métodos são:
- * -> getNome> Retorna o nome
- * -> getIdade> Retorna a idade
- * -> getEndereço> Retorna o endereço
- * -> getDadosCompletos> Retorna concatenado NOME, IDADE, GENERO, TELEFONE e TEMPO DE TRABALHO
- * -> getNomeETelefone> Retorna nome e telefone.
- * -> getTempoDeTrabalho> Retorna o tempo de trabalho.
- * -> getTempoParaSeAposentar> Assuma que a idade de aposentadoria é 60 anos feminino, 65 masculino.
- * -> getTelefone> Retorna o telefone. 
+ * -> getNome> Retorna o nome V
+ * -> getIdade> Retorna a idade V
+ * -> getEndereço> Retorna o endereço V
+ * -> getDadosCompletos> Retorna concatenado NOME, IDADE, GENERO, TELEFONE e TEMPO DE TRABALHO V
+ * -> getNomeETelefone> Retorna nome e telefone. V
+ * -> getTempoDeTrabalho> Retorna o tempo de trabalho. V
+ * -> getTempoParaSeAposentar> Assuma que a idade de aposentadoria é 60 anos feminino, 65 masculino. V
+ * -> getTelefone> Retorna o telefone. V
  * 
  * Em seguida crie uma classe de teste para PESSOA e cubra as funcionalidades
  * com testes unitários para validar o correto funcionamento da mesma.
@@ -54,24 +54,25 @@ class Pessoa {
     getTelefone(){
         return this.telefone;
     }
-    getNomeETelefone(){
-        return this.nome,
-        this.telefone;
-    }
     getTempoDeTrabalho(){
         return this.tempoDeTrabalho;
     }
     getTempoParaSeAposentar(){
         if(this.genero == "feminino"){
-            this.tempoParaSeAposentar = 60-idade;
+            this.tempoParaSeAposentar = 60-this.idade;
         }else if(this.genero == "masculino"){
-            this.tempoParaSeAposentar = 65-idade;
+            this.tempoParaSeAposentar = 65-this.idade;
         }
         return this.tempoParaSeAposentar;
     }
-    // getDadosCompletos(){
-    //     return this.nome;
-    // }
+    getDadosCompletos(){
+        let dadosCompletos = this.nome.concat(", ",this.idade,", ",
+        this.genero,", ",this.telefone,", ",this.endereco,", ",this.tempoDeTrabalho);
+        return dadosCompletos;
+    }
+    getNomeETelefone(){
+        return [this.nome,this.telefone];
+    }
 
 
 }

@@ -25,24 +25,16 @@ describe("Pessoa", () => {
         }else if(genero == "masculino"){
             tempoParaSeAposentar = 65-idade;
         }
-        
-        idadeParaAposentadoriaMasculino = 65;
-        // idadeAcimaDoLimiteAposentadoriaMasculino = 70;
-        idadeLParaAposentadoriaFeminino = 60
-        // idadeAcimaDoLimiteAposentadoriaFeminino = 63;
-        // generoFeminino = "Feminino";
     
+        pessoa = new Pessoa(nome,idade,endereco,genero,telefone,tempoDeTrabalho)
     
-        pessoa = new Pessoa(nome,idade,endereco,genero,telefone,tempoDeTrabalho);
-    
-        // dadosCompletos = nome.concat(", ",idade,", ",genero,", ",telefone,", ",endereco,", ",experiencia);
     })
 
     test("Deve retornar o nome correto", () => {
         expect(pessoa.getNome()).toBe(nome)
     })
 
-    test("Deve retornar a idade corret", () => {
+    test("Deve retornar a idade correta", () => {
         expect(pessoa.getIdade()).toBe(idade)
     })
 
@@ -58,13 +50,12 @@ describe("Pessoa", () => {
         expect(pessoa.getTempoDeTrabalho()).toBe(tempoDeTrabalho)
     })
 
-    // test("Deve retornar o tempo restante para a aposentadoria", () => {
-    //     expect(pessoa.getTempoParaSeAposentar()).toBe(tempoParaSeAposentar)
+    test("Deve retornar o tempo restante para a aposentadoria", () => {
+        expect(pessoa.getTempoParaSeAposentar()).toBe(tempoParaSeAposentar)
+    })
+
+    // test("Idade não deve ser um caracter", () => {
+    //     expect(pessoa.getIdade()).not.toBe(String)
     // })
-
-
-
-
-
 
 })
