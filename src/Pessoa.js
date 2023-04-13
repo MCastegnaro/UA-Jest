@@ -39,7 +39,10 @@ class Pessoa {
     endereco,
     telefone,
     tempoDeTrabalho
-  }) {
+  } = {}) {
+    if (!nome || !idade || !endereco || !telefone || (!tempoDeTrabalho && tempoDeTrabalho !== 0))
+      throw new Error("Dados faltantes");
+
     this.nome = nome;
     this.idade = idade;
     this.endereco = endereco;
@@ -66,7 +69,7 @@ class Pessoa {
   getTempoDeTrabalho() {
     return this.tempoDeTrabalho;
   }
-  
+
   getGenero() {
     return this.genero;
   }

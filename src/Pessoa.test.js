@@ -18,6 +18,10 @@ describe("Pessoa", () => {
     });
   });
 
+  test("Pessoa não deve ser cadastrada sem todos os dados", () => {
+    expect(() => new Pessoa()).toThrowError(new Error("Dados faltantes"));
+  });
+
   test("Pessoa deve retornar nome do tipo string e com mais de um caractere", () => {
     const nome = pessoa.getNome();
 
@@ -45,10 +49,11 @@ describe("Pessoa", () => {
     expect(endereco.numero.length).toBeLessThanOrEqual(6);
   });
 
-  test("Pessoa deve retornar um telefone do tipo string e com length entre 10 e 11", () => {
+  test("Pessoa deve retornar um telefone do tipo string com apenas números e com length entre 10 e 11", () => {
     const telefone = pessoa.getTelefone();
 
     expect(typeof pessoa.telefone).toBe("string");
+    expect(isNaN(pessoa.telefone)).toBe(false);
 
     expect(telefone.length).toBeGreaterThanOrEqual(10);
     expect(telefone.length).toBeLessThanOrEqual(11);
