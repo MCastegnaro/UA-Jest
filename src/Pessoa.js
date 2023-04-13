@@ -31,5 +31,74 @@
  */
 
 class Pessoa {
+    constructor() {
+
+        this.nome = ""
+        this.idade = 0 
+        this.endereco = ""
+        this.genero = ""
+        this.telefone = ""
+        this.tempoDeTrabalhoAnos = 0
+
+    }
+
+    getNome(){
+        return this.nome;
+    }
+
+    getIdade(){
+        return this.idade;
+    }
+
+    idadeNaoZero(idade){
+        if(idade !== 0){
+            return idade
+        }
+    }
+
+    getEndereco(){
+        return this.endereco;
+    }
+
+    getDadosCompletos(){
+        return `${this.nome} ${this.idade} ${this.genero} ${this.telefone} ${this.tempoDeTrabalhoAnos}`;
+    }
+
+    getNomeETelefone(){
+        return `${this.nome} ${this.telefone}`;
+    }
+
+    getTempoDeTrabalhoAnos(){
+        return this.tempoDeTrabalhoAnos;
+    }
+
+    getTempoParaSeAposentar(genero, tempoDeTrabalho){
+
+        if(genero === "Masculino"){
+            if(tempoDeTrabalho >= 65){
+                return "Aposentado";
+            }
+            else{ 
+                return "Não Aposentado";
+            }
+
+        }else if (genero === "Feminino"){
+            if(tempoDeTrabalho >= 60){
+                return "Aposentada";
+            }
+            else{ 
+                return "Não Aposentada";
+            }
+        }else if (genero === "Não Binário"){
+            return "Não há lei específica com as regras de aposentadoria para este Gênero"
+        }
+
+    }
+
+    getTelefone(){
+        return this.telefone;
+    }
 
 }
+
+module.exports = Pessoa;
