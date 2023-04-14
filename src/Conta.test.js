@@ -1,4 +1,4 @@
-const Conta = require("./conta");
+const Conta = require("./conta.js");
 
 describe("Conta", () => {
     let conta;
@@ -45,8 +45,7 @@ describe("Conta", () => {
         conta.depositar(depositoInicial);
         conta.inativar();
 
-        expect(() => conta.sacar(saqueValido))
-            .toThrowError(new Error("Conta inativa ou saldo inferior ao valor de saque!"));
+        expect(() => conta.sacar(saqueValido)).toThrowError(new Error("Conta inativa ou saldo inferior ao valor de saque!"));
 
         expect(conta.getSaldo()).toBe(depositoInicial);
     });
