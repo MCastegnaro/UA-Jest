@@ -30,6 +30,52 @@
  * entrega-02 lá do repositório do professor.
  */
 
-class Pessoa {
-
+const genero = {
+    MASCULINO : 'masculino',
+    FEMININO : 'feminino'
 }
+
+class Pessoa {
+    constructor(nome, idade, endereco, genero, telefone, tempoDeTrabalho) {
+      this.nome = nome;
+      this.idade = idade;
+      this.endereco = endereco;
+      this.genero = genero;
+      this.telefone = telefone;
+      this.tempoDeTrabalho = tempoDeTrabalho;
+    }
+  
+    getNome() {
+      return this.nome;
+    }
+  
+    getIdade() {
+      return this.idade;
+    }
+  
+    getEndereco() {
+      return this.endereco;
+    }
+  
+    getDadosCompletos() {
+      return `${this.nome}, ${this.idade} anos, ${this.genero}, tel: ${this.telefone}, tempo de trabalho: ${this.tempoDeTrabalho} anos`;
+    }
+  
+    getNomeETelefone() {
+      return `nome: ${this.nome}, tel: ${this.telefone}`;
+    }
+  
+    getTempoDeTrabalho() {
+      return this.tempoDeTrabalho;
+    }
+  
+    getTempoParaSeAposentar() {
+      return ((this.genero == genero.MASCULINO) ? 65 : 60) - this.idade;
+    }
+  
+    getTelefone() {
+      return this.telefone;
+    }
+}
+
+module.exports = { genero, Pessoa };
