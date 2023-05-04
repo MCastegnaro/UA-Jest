@@ -31,5 +31,14 @@
  */
 
 class Pessoa {
+    constructor(){
+        this.nome = "";
+        this.idade = 0;
+        this.endereco = "";
+        this.genero = "";
+        this.telefone = "";
+        this.tempoDeTrabalho = 0;
+    }
 
+    
 }
